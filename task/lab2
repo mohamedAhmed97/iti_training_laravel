@@ -1,0 +1,11 @@
+Lab:
+
+// continue lab 1 
+// create 2 migration 
+1- create books -> title , price , des 
+2- create catagories -> name 
+
+// sorry i forgot to add pic  -> new migration for books table -> add column pic 
+
+// add seeder for this 2 tables with fakersssssssss (100 -> books , 10 for catagories)
+
