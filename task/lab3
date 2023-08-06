@@ -1,0 +1,28 @@
+CRUD -> CREATE - READ - UPDATE - DElETE
+
+Create --> Book::create([
+   "title"=>"nsdaasd",
+   "price"=>20,
+
+]);
+
+
+READ -> all - ID - condition
+Book::all();
+Book::find(ID)
+/// condition price > 5 
+Book::where('price'>5)->get();
+
+UPDATE -> ID 
+$book=Book::find($id)
+$book->title="test";
+$book->save();
+
+DELETE ->id
+/// create -> book 
+    delete -> book
+    show all -> book   
+    
+// lab :
+1- view -> dd(x)-> view page
+2- edit page with post request

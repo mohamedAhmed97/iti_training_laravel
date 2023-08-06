@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\BookController;
+use App\Models\Book;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,29 +21,8 @@ Route::get('/', function () {
 });
 
 // create route /profile
-Route::get('/books', function () {
-    $books = [
-        [
-            "title" => 1980,
-            "price" => 50
-        ],
-        [
-            "title" => "Laravel",
-            "price" => 100
-        ],
-        [
-            "title" => "Vue",
-            "price" => 100
-        ],
-    ];
-    $page = "Books";
-    return view('books', [
-        "page" => $page,
-        "books" => $books
-    ]); //resource/views/''
-});
-
-Route::get('create-book', function () {
-    $page = "create book";
-    return view('create-book', ['page' => $page]);
-});
+Route::get('books', [BookController::class, 'index'])->name('books.index');
+Route::get('books/create', [BookController::class, 'create'])->name('photos.create');
+Route::post('books', [BookController::class, 'store'])->name('books.store');
+Route::get('books/{book}',[BookController::class,'show'])->name('books.show');
+Route::delete('books/{book}',[BookController::class,'destroy'])->name('books.destroy');
