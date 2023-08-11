@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateBookRequest;
 use App\Models\Book;
+use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BookController extends Controller
 {
@@ -22,15 +25,19 @@ class BookController extends Controller
     public function create()
     {
         $page = "create book";
-        return view('create-book', ['page' => $page]);
+        $categories = Category::all();
+        return view('create-book', ['page' => $page, 'categories' => $categories]);
     }
     // create
-    public function store(Request $request)
+    public function store(CreateBookRequest $request)
     {
+        $fileName = Book::uploadFile($request, $request->pic);
         Book::create([
             "title" => $request->title,
             "price" => $request->price,
             "description" => $request->description,
+            "cat_id" => $request->category,
+            "pic" => $fileName
         ]);
         return redirect()->route('books.index');
     }

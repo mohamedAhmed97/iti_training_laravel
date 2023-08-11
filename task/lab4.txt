@@ -1,0 +1,17 @@
+// make what happen in lec 4
+---------------------------------------
+1- add categories to books
+2- add validation of books using request class
+3- upload pic of book and put in the index page ("table")
+4- auth and add middleware to route books
+5- chage in web.php file and make Route::resource
+------------------------------------------
+new :
+----
+1-tags -> table -> name 
+
+2- relation many to many -> book has many tags 
+                            tags has many books
+
+3- look on this link 
+https://www.itsolutionstuff.com/post/laravel-many-to-many-eloquent-relationship-tutorialexample.html
