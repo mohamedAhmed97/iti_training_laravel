@@ -24,7 +24,7 @@ class CreateBookRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|min:6|max:255',
+            'title' => 'required|unique:books|min:6|max:255',
             'price' => 'required|min_digits:0',
             'category' => 'required|exists:categories,id',
             'description' => 'required|max:255',
